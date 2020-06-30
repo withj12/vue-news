@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+
+<script>
+    function fetchData() {
+        // 1
+        var result = [];
+
+        // 2
+        $.ajax({
+            url: 'https://api.hnpwa.com/v0/news/1.json', 
+            success: function(data) {
+                console.log('데이터 호출 결과', data);
+                result = data;
+                // 4 ajax 데이터 전송 성공했을 때만 실행한다..
+                console.log('함수 결과', result);
+            }
+        });
+
+        // 3
+        // ajax로 데이터 호출 코드를 보내고 기다리는 동안 3을 실행함, 
+        // 이것이 자바스크립트의 비동기 처리. 콜백함수
+        // 즉 result엔 아무 데이터가 없다.
+        // console.log('함수 결과', result);
+    }
+    fetchData();
+
+
+</script>
+<body>
+    
+</body>
+</html>
